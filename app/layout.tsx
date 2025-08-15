@@ -155,6 +155,8 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        {/* Google Workspace ドメイン認証用メタタグ */}
+        <meta name="google-site-verification" content="QeSPCupY1CeEa3vdh7YdPPOKHsUBL5mNOT7eICl88Lc" />
         {/* 構造化データの埋め込み */}
         <Script
           id="json-ld"
