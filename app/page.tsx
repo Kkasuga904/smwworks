@@ -1,11 +1,19 @@
 import Link from 'next/link'
 import { config } from '@/lib/config'
 
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '初期費用0円のホームページ制作 | SmartWeb Works',
+  description: '関東圏の中小企業・個人事業主様向けに、初期費用0円、月額5,500円からのホームページ制作サービスを提供。SEO対策・保守込み。',
+  keywords: 'ホームページ制作,Web制作,初期費用0円,月額制,SEO対策,レスポンシブ対応,関東,東京,神奈川,千葉,埼玉',
+}
+
 export default function Home() {
   return (
     <>
       {/* ヒーローセクション - 高級感ある微分グラデーション */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#0ea5e9] via-[#6366f1] to-[#0ea5e9] min-h-[85vh] sm:min-h-[90vh] flex items-center">
+      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#0ea5e9] via-[#6366f1] to-[#0ea5e9] min-h-[85vh] sm:min-h-[90vh] flex items-center" aria-label="メインビジュアル">
         {/* 粒ノイズ風オーバーレイ */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent" />
         {/* コントラスト確保用オーバーレイ */}
@@ -13,7 +21,7 @@ export default function Home() {
         
         <div className="relative z-10 mx-auto max-w-screen-xl px-4 sm:px-6 py-20 sm:py-28">
           {/* メインキャッチコピー - 可読性最優先 */}
-          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-[-0.01em] drop-shadow-md">
+          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-[-0.01em] drop-shadow-md" itemProp="headline">
             中小企業・個人事業主様へ
             <br />
             <span className="text-white">初期費用0円</span>で
@@ -52,7 +60,7 @@ export default function Home() {
       </section>
 
       {/* 信頼感UIバッジ - ヒーロー直下 */}
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-12 sm:py-16" aria-label="サービスの特徴">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
@@ -61,18 +69,18 @@ export default function Home() {
               { icon: '🌐', title: '独自ドメイン', desc: '.com/.jp対応' },
               { icon: '🗾', title: '関東圏対応', desc: 'オンライン全国可' }
             ].map((badge, index) => (
-              <div key={index} className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
-                <div className="text-3xl mb-2">{badge.icon}</div>
+              <article key={index} className="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                <div className="text-3xl mb-2" aria-hidden="true">{badge.icon}</div>
                 <h3 className="font-bold text-gray-900 text-sm">{badge.title}</h3>
                 <p className="text-xs text-gray-600 mt-1">{badge.desc}</p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* サービスセクション - 余白統一 */}
-      <section id="services" className="py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50">
+      <section id="services" className="py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50" aria-label="サービス内容">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6">
           {/* セクションタイトル */}
           <div className="text-center mb-12 sm:mb-16">
@@ -119,7 +127,7 @@ export default function Home() {
       </section>
 
       {/* 料金プランセクション - 高さ統一 */}
-      <section id="pricing" className="py-16 sm:py-24 bg-gray-50">
+      <section id="pricing" className="py-16 sm:py-24 bg-gray-50" aria-label="料金プラン">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
@@ -151,7 +159,7 @@ export default function Home() {
                 <ul className="space-y-3 mb-8 flex-grow">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
-                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span className="text-gray-700">{feature}</span>
@@ -183,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* 選ばれる理由セクション */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-white" aria-label="選ばれる理由">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
@@ -216,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* CTAセクション */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-[#0ea5e9] via-[#6366f1] to-[#0ea5e9] relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-[#0ea5e9] via-[#6366f1] to-[#0ea5e9] relative overflow-hidden" aria-label="お問い合わせ">
         <div className="absolute inset-0 bg-black/20" />
         
         <div className="relative z-10 mx-auto max-w-screen-xl px-4 sm:px-6 text-center">
