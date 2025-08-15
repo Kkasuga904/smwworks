@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* タッチ操作の最適化 */
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply font-sans;
+    /* スマホでのフォント最適化 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* タッチスクロールの最適化 */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* リンクやボタンのタッチエリアを大きく（インライン要素は除外） */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors font-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors font-medium;
+  }
+}
