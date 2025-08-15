@@ -68,24 +68,28 @@ export const metadata: Metadata = {
 }
 
 // 構造化データ - LocalBusiness
+// Google検索で表示されるリッチスニペット用のJSON-LD形式データ
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'LocalBusiness', // ローカルビジネスとして定義
   '@id': config.ogp.url,
   name: config.siteName,
   description: config.meta.description,
   url: config.ogp.url,
   email: config.email,
+  // 住所情報 - ローカルSEO用
   address: {
     '@type': 'PostalAddress',
     addressRegion: '関東',
     addressCountry: 'JP',
   },
+  // 地理座標 - Googleマップ連携用
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 35.6762,
+    latitude: 35.6762, // 東京の座標
     longitude: 139.6503,
   },
+  // サービス提供エリア
   areaServed: [
     {
       '@type': 'State',
@@ -104,9 +108,10 @@ const jsonLd = {
       name: '埼玉県',
     },
   ],
-  priceRange: '¥¥',
+  priceRange: '¥¥', // 価格帯（中程度）
   image: `${config.ogp.url}/og-image.png`,
   telephone: '+81-00-0000-0000',
+  // 営業時間情報
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -115,10 +120,12 @@ const jsonLd = {
       closes: '18:00',
     },
   ],
+  // SNSリンク
   sameAs: [
     'https://twitter.com/smwworks',
     'https://www.facebook.com/smwworks',
   ],
+  // 提供サービス一覧
   makesOffer: [
     {
       '@type': 'Offer',
@@ -139,6 +146,7 @@ const jsonLd = {
   ],
 }
 
+// ルートレイアウトコンポーネント - 全ページ共通のレイアウト
 export default function RootLayout({
   children,
 }: {
@@ -147,18 +155,22 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        {/* 構造化データの埋め込み */}
         <Script
           id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          strategy="beforeInteractive"
+          strategy="beforeInteractive" // ページ読み込み前に実行
         />
       </head>
       <body className="min-h-screen flex flex-col">
+        {/* ヘッダーコンポーネント */}
         <Header />
+        {/* メインコンテンツエリア - flex-growで画面全体を使用 */}
         <main className="flex-grow">
           {children}
         </main>
+        {/* フッターコンポーネント */}
         <Footer />
       </body>
     </html>

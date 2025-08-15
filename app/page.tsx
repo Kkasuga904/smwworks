@@ -1,14 +1,15 @@
 import Link from 'next/link'
 import { config } from '@/lib/config'
-
 import { Metadata } from 'next'
 
+// ページ固有のメタデータ設定 - SEO最適化
 export const metadata: Metadata = {
   title: '初期費用0円のホームページ制作 | SmartWeb Works',
   description: '関東圏の中小企業・個人事業主様向けに、初期費用0円、月額5,500円からのホームページ制作サービスを提供。SEO対策・保守込み。',
   keywords: 'ホームページ制作,Web制作,初期費用0円,月額制,SEO対策,レスポンシブ対応,関東,東京,神奈川,千葉,埼玉',
 }
 
+// ホームページのメインコンポーネント
 export default function Home() {
   return (
     <>
@@ -39,7 +40,7 @@ export default function Home() {
             {config.serviceAreaText}
           </p>
           
-          {/* 即押しCTA配置 */}
+          {/* 即押しCTA配置 - ファーストビューでのコンバージョン促進 */}
           <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link 
               href="/contact"
@@ -63,6 +64,7 @@ export default function Home() {
       <section className="bg-white py-12 sm:py-16" aria-label="サービスの特徴">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {/* 信頼性を示す4つのバッジデータ */}
             {[
               { icon: '📱', title: 'スマホ最適化', desc: '全デバイス対応' },
               { icon: '⚡', title: '高速表示', desc: 'Core Web Vitals' },
@@ -94,6 +96,7 @@ export default function Home() {
           
           {/* サービスカード */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {/* サービスカードデータ配列 */}
             {[
               {
                 title: 'ホームページ制作',
@@ -114,6 +117,7 @@ export default function Home() {
                 color: 'from-orange-500 to-red-600'
               }
             ].map((service, index) => (
+              // サービスカード - ホバー時にシャドウ強調
               <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-8">
                 <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg`}>
                   <span className="text-3xl">{service.icon}</span>
@@ -138,7 +142,9 @@ export default function Home() {
             </p>
           </div>
           
+          {/* 料金プランカードグリッド - レスポンシブ対応 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {/* config.tsから料金プランデータを取得してマッピング */}
             {config.pricing.plans.map((plan, index) => (
               <div 
                 key={index}
@@ -146,6 +152,7 @@ export default function Home() {
                   plan.recommended ? 'ring-2 ring-blue-500' : ''
                 }`}
               >
+                {/* おすすめプランバッジ - 視覚的に強調 */}
                 {plan.recommended && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-sm font-bold px-4 py-1 rounded-full">
                     おすすめ
@@ -156,6 +163,7 @@ export default function Home() {
                   <span className="text-4xl font-extrabold text-gray-900">¥{plan.price}</span>
                   <span className="text-gray-500 ml-2">/月</span>
                 </div>
+                {/* プラン機能リスト - チェックマーク付き */}
                 <ul className="space-y-3 mb-8 flex-grow">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
@@ -203,13 +211,16 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* 選ばれる4つの理由データ */}
             {[
               { num: '01', title: '初期費用0円', desc: '通常数十万円かかる制作費用が0円。月額料金のみで始められます。' },
               { num: '02', title: '全国対応サポート', desc: '関東圏を中心に全国の事業者様に対応。オンラインでのサポートも完備。' },
               { num: '03', title: '充実の保守サービス', desc: '月額料金に保守・更新が含まれているので、追加費用の心配がありません。' },
               { num: '04', title: '最新技術で高速表示', desc: '最新のWeb技術を使用し、高速で快適なサイトを制作します。' }
             ].map((item, index) => (
+              // 理由アイテム - 番号付きレイアウト
               <div key={index} className="flex gap-6">
+                {/* 番号バッジ - 視覚的階層を作る */}
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                   <span className="text-blue-600 font-bold text-sm">{item.num}</span>
                 </div>
@@ -243,7 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* モバイル固定CTA */}
+      {/* モバイル固定CTA - スマホでの高CV率実現 */}
       <div className="sm:hidden fixed bottom-3 inset-x-3 z-50">
         <Link 
           href="/contact" 
