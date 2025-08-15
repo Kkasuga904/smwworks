@@ -51,12 +51,15 @@ export const config = {
    * 営業資料（A4 1枚）と完全一致させること
    */
   pricing: {
+    // キャッチフレーズ - サイト全体で使用
     catchphrase: '初期費用0円・月額5,500円から',
+    // 料金プランの配列 - 3プラン構成
     plans: [
       {
+        // プラン1: エントリープラン
         name: 'ライトプラン',
-        price: '5,500',
-        features: [
+        price: '5,500',  // 月額料金（円）
+        features: [  // プランに含まれる機能
           '5ページまで',
           'スマホ対応',
           '基本SEO対策',
@@ -65,10 +68,11 @@ export const config = {
         ],
       },
       {
+        // プラン2: 人気No.1プラン
         name: 'スタンダードプラン',
-        price: '11,000',
-        recommended: true,
-        features: [
+        price: '11,000',  // 月額料金（円）
+        recommended: true,  // おすすめバッジを表示
+        features: [  // プランに含まれる機能
           '10ページまで',
           'お問い合わせフォーム',
           'アクセス解析',
@@ -78,9 +82,10 @@ export const config = {
         ],
       },
       {
+        // プラン3: ハイエンドプラン
         name: 'プレミアムプラン',
-        price: '22,000',
-        features: [
+        price: '22,000',  // 月額料金（円）
+        features: [  // プランに含まれる機能
           'ページ数無制限',
           'ECサイト機能',
           '高度なSEO対策',
@@ -90,6 +95,7 @@ export const config = {
         ],
       },
     ],
+    // 料金プランの注意事項 - 必ず表示すること
     notes: [
       '※初期費用0円、月額料金のみ',
       '※最低契約6ヶ月',
@@ -111,19 +117,22 @@ export const config = {
    */
   services: [
     {
+      // サービス1: Web制作
       title: 'ホームページ制作',
       description: 'スマホ対応のレスポンシブデザイン。お客様のビジネスに最適なサイトを制作します。',
-      icon: 'web',
+      icon: 'web',  // アイコンタイプ
     },
     {
+      // サービス2: 保守・運用
       title: '保守・更新サポート',
       description: '月額料金に含まれる安心の保守サービス。定期的な更新もお任せください。',
-      icon: 'support',
+      icon: 'support',  // アイコンタイプ
     },
     {
+      // サービス3: SEO対策
       title: 'SEO対策',
       description: '検索での上位表示を目指す、効果的なSEO対策を実施。',
-      icon: 'seo',
+      icon: 'seo',  // アイコンタイプ
     },
   ],
   

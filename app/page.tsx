@@ -32,14 +32,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* サービスセクション */}
+      {/* サービスセクション - 3つの主要サービスを表示 */}
       <section id="services" className="py-20 bg-white">
         <div className="container-custom">
+          {/* セクションタイトル */}
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             サービス内容
           </h2>
+          {/* サービスカードのグリッドレイアウト */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* ホームページ制作サービス */}
             <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow will-change-transform">
+              {/* アイコン - PCモニター */}
               <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -52,7 +56,9 @@ export default function Home() {
               </p>
             </div>
             
+            {/* 保守・更新サポートサービス */}
             <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow will-change-transform">
+              {/* アイコン - 設定・歯車 */}
               <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -66,7 +72,9 @@ export default function Home() {
               </p>
             </div>
             
+            {/* SEO対策サービス */}
             <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow will-change-transform">
+              {/* アイコン - 稲妻（高速化） */}
               <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -152,14 +160,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 選ばれる理由セクション */}
+      {/* 選ばれる理由セクション - 4つの強みを紹介 */}
       <section className="py-20 bg-white">
         <div className="container-custom">
+          {/* セクションタイトル */}
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             選ばれる理由
           </h2>
+          {/* 理由カードのグリッドレイアウト（2列） */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* 理由1: 初期費用0円 */}
             <div className="flex items-start space-x-4">
+              {/* 番号バッジ */}
               <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
                 1
               </div>
@@ -171,7 +183,9 @@ export default function Home() {
               </div>
             </div>
             
+            {/* 理由2: 全国対応サポート */}
             <div className="flex items-start space-x-4">
+              {/* 番号バッジ */}
               <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
                 2
               </div>
@@ -183,7 +197,9 @@ export default function Home() {
               </div>
             </div>
             
+            {/* 理由3: 充実の保守サービス */}
             <div className="flex items-start space-x-4">
+              {/* 番号バッジ */}
               <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
                 3
               </div>
@@ -195,7 +211,9 @@ export default function Home() {
               </div>
             </div>
             
+            {/* 理由4: 最新技術で高速表示 */}
             <div className="flex items-start space-x-4">
+              {/* 番号バッジ */}
               <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
                 4
               </div>
@@ -210,15 +228,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTAセクション */}
+      {/* CTAセクション - 最終的なコンバージョン誘導 */}
       <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
         <div className="container-custom text-center">
+          {/* CTA見出し */}
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             まずは無料相談から
           </h2>
+          {/* サブテキスト */}
           <p className="text-xl mb-8">
             お客様のビジネスに最適なプランをご提案します
           </p>
+          {/* CTAボタン */}
           <Link href="/contact" className="inline-block bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-bold text-lg">
             無料相談を申し込む
           </Link>

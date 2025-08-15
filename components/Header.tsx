@@ -6,6 +6,7 @@ import { config } from '@/lib/config'
 
 // ヘッダーコンポーネント - 地域名は.env.localで管理
 export default function Header() {
+  // モバイルメニューの開閉状態を管理
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
@@ -19,18 +20,23 @@ export default function Header() {
 
           {/* PC用ナビゲーション - lg以上で表示 */}
           <nav className="hidden lg:flex items-center space-x-6">
+            {/* ナビゲーションリンク - ホーム */}
             <Link href="/" className="text-gray-700 hover:text-primary transition-colors">
               ホーム
             </Link>
+            {/* ナビゲーションリンク - サービス */}
             <Link href="/#services" className="text-gray-700 hover:text-primary transition-colors">
               サービス
             </Link>
+            {/* ナビゲーションリンク - 料金プラン */}
             <Link href="/#pricing" className="text-gray-700 hover:text-primary transition-colors">
               料金プラン
             </Link>
+            {/* ナビゲーションリンク - 制作実績 */}
             <Link href="/works" className="text-gray-700 hover:text-primary transition-colors">
               制作実績
             </Link>
+            {/* CTAボタン - 無料相談 */}
             <Link href="/contact" className="inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors font-medium">
               無料相談
             </Link>
@@ -59,38 +65,43 @@ export default function Header() {
         {/* モバイル・タブレットメニュー - lg未満で表示 */}
         {isMenuOpen && (
           <nav className="lg:hidden py-4 border-t">
+            {/* モバイルメニューリンク - ホーム */}
             <Link 
               href="/" 
               className="block py-2 text-gray-700 hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // メニューを閉じる
             >
               ホーム
             </Link>
+            {/* モバイルメニューリンク - サービス */}
             <Link 
               href="/#services" 
               className="block py-2 text-gray-700 hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // メニューを閉じる
             >
               サービス
             </Link>
+            {/* モバイルメニューリンク - 料金プラン */}
             <Link 
               href="/#pricing" 
               className="block py-2 text-gray-700 hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // メニューを閉じる
             >
               料金プラン
             </Link>
+            {/* モバイルメニューリンク - 制作実績 */}
             <Link 
               href="/works" 
               className="block py-2 text-gray-700 hover:text-primary"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // メニューを閉じる
             >
               制作実績
             </Link>
+            {/* モバイルメニューリンク - 無料相談（CTA） */}
             <Link 
               href="/contact" 
               className="block py-2 text-primary font-medium"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // メニューを閉じる
             >
               無料相談
             </Link>
