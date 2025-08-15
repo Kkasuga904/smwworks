@@ -220,7 +220,8 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3 className="font-semibold mb-2">メールでのお問い合わせ</h3>
-              <p className="text-gray-600">24時間受付</p>
+              <p className="text-gray-600">info@smwworks.com</p>
+              <p className="text-gray-600 text-sm">24時間受付</p>
             </div>
             
             <div className="text-center">

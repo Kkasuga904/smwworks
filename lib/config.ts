@@ -15,6 +15,11 @@ export const config = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://smartweb-solutions.vercel.app',
   
   /**
+   * お問い合わせメールアドレス
+   */
+  email: 'info@smwworks.com',
+  
+  /**
    * 対応エリア
    */
   serviceArea: process.env.NEXT_PUBLIC_SERVICE_AREA || '関東圏',

@@ -111,7 +111,10 @@ export default function PrivacyPage() {
             <div>
               <h3 className="text-xl font-bold mb-3">第10条（お問い合わせ窓口）</h3>
               <p className="text-gray-700 leading-relaxed">
-                本ポリシーに関するお問い合わせは、お問い合わせフォームよりお願いいたします。
+                本ポリシーに関するお問い合わせは、下記の窓口までお願いいたします。
+              </p>
+              <p className="text-gray-700 leading-relaxed mt-3">
+                Eメールアドレス：info@smwworks.com
               </p>
             </div>
 

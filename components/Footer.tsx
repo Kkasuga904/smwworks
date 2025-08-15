@@ -64,6 +64,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">お問い合わせ</h4>
             <p className="text-sm mb-2">
+              メール: {config.email}
+            </p>
+            <p className="text-sm mb-2">
               営業時間: 平日 9:00-18:00
             </p>
             <Link 
