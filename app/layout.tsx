@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: config.meta.title,
   description: config.meta.description,
   keywords: config.meta.keywords,
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: config.ogp.title,
     description: config.ogp.description,
