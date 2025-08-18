@@ -17,5 +17,18 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://smwworks.com/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "host",
+          "value": "www.smwworks.com"
+        }
+      ]
+    }
   ]
 }
