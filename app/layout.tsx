@@ -4,6 +4,15 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { config } from '@/lib/config'
 import Script from 'next/script'
+import { Inter } from 'next/font/google'
+
+// フォント最適化
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+})
 
 // SEO最適化されたメタデータ
 export const metadata: Metadata = {
@@ -153,8 +162,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={inter.className}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <meta httpEquiv="x-dns-prefetch-control" content="on" />
         {/* Google Workspace ドメイン認証用メタタグ */}
         <meta name="google-site-verification" content="QeSPCupY1CeEa3vdh7YdPPOKHsUBL5mNOT7eICl88Lc" />
         {/* 構造化データの埋め込み */}
@@ -165,7 +177,7 @@ export default function RootLayout({
           strategy="beforeInteractive" // ページ読み込み前に実行
         />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col" suppressHydrationWarning>
         {/* ヘッダーコンポーネント */}
         <Header />
         {/* メインコンテンツエリア - flex-growで画面全体を使用 */}
