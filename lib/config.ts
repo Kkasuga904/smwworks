@@ -34,7 +34,7 @@ export const config = {
    */
   get meta() {
     return {
-      title: `${this.siteName} | プロフェッショナルWeb制作`,
+      title: 'SmartWeb Works',
       description: '中小企業・個人事業主様向けWeb制作サービス。初期費用0円、月額5,500円から。全国対応でサポートします。',
       keywords: 'Web制作,ホームページ制作,初期費用0円,全国対応,中小企業,個人事業主',
     }
