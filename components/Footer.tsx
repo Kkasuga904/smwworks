@@ -6,45 +6,19 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 mt-20">
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* 会社情報 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* 左側：サービス情報 */}
           <div>
-            <h3 className="text-white font-bold mb-4">{config.siteName}</h3>
-            <p className="text-sm">
-              プロフェッショナル<br />
-              Web制作サービス
-            </p>
-          </div>
-          
-          {/* サービスリンク */}
-          <div>
-            <h4 className="text-white font-semibold mb-3">サービス</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/#services" className="hover:text-white transition-colors">
-                  Web制作
-                </Link>
-              </li>
-              <li>
-                <Link href="/#services" className="hover:text-white transition-colors">
-                  保守管理
-                </Link>
-              </li>
-              <li>
-                <Link href="/#services" className="hover:text-white transition-colors">
-                  SEO対策
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          {/* 会社情報リンク */}
-          <div>
-            <h4 className="text-white font-semibold mb-3">会社情報</h4>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-white font-bold mb-6 text-lg">サービス情報</h3>
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link href="/works" className="hover:text-white transition-colors">
                   制作実績
+                </Link>
+              </li>
+              <li>
+                <Link href="/company" className="hover:text-white transition-colors">
+                  会社情報
                 </Link>
               </li>
               <li>
@@ -52,28 +26,27 @@ export default function Footer() {
                   プライバシーポリシー
                 </Link>
               </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  お問い合わせ
-                </Link>
-              </li>
             </ul>
           </div>
           
-          {/* お問い合わせ情報 */}
+          {/* 右側：お問い合わせ */}
           <div>
-            <h4 className="text-white font-semibold mb-3">お問い合わせ</h4>
-            <p className="text-sm mb-2">
-              メール: {config.email}
-            </p>
-            <p className="text-sm mb-2">
-              営業時間: 平日 9:00-18:00
-            </p>
+            <h3 className="text-white font-bold mb-6 text-lg">お問い合わせ</h3>
+            <div className="space-y-3 text-sm mb-6">
+              <div>
+                <strong className="text-white block mb-1">メール</strong>
+                {config.email}
+              </div>
+              <div>
+                <strong className="text-white block mb-1">営業時間</strong>
+                平日 9:00-18:00
+              </div>
+            </div>
             <Link 
               href="/contact" 
-              className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-sm"
+              className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl font-semibold"
             >
-              無料相談はこちら
+              無料相談・お問い合わせ
             </Link>
           </div>
         </div>
