@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINE予約システム - 電話対応の手間をゼロに</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        /* ファーストビュー */
+        .hero {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        /* 料金表示 */
+        .price-display {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff3333;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .price-note {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        /* メリットセクション */
+        .benefits {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+        
+        .benefits-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .benefit-icon.phone {
+            color: #4CAF50;
+        }
+        
+        .benefit-icon.clock {
+            color: #2196F3;
+        }
+        
+        .benefit-icon.price {
+            color: #ff3333;
+        }
+        
+        .benefit-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            padding: 60px 20px;
+            text-align: center;
+            background: white;
+        }
+        
+        .cta-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff3333;
+            color: white;
+            padding: 20px 60px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #e62222;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 51, 51, 0.4);
+        }
+        
+        .cta-note {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+        
+        /* QRコードセクション */
+        .qr-section {
+            padding: 40px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .qr-container {
+            display: inline-block;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 18px;
+            color: #999;
+        }
+        
+        .qr-text {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        /* よくある質問セクション */
+        .faq-section {
+            padding: 60px 20px;
+            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #2196F3;
+        }
+        
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-question::before {
+            content: "Q.";
+            color: #2196F3;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .faq-answer {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            padding-left: 35px;
+        }
+        
+        /* お問い合わせセクション */
+        .contact-section {
+            padding: 60px 20px;
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .contact-hours {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .contact-note {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* フッター */
+        .footer {
+            padding: 20px;
+            background: #222;
+            color: #999;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .price-display {
+                font-size: 32px;
+            }
+            
+            .benefits-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cta-button {
+                font-size: 20px;
+                padding: 15px 40px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ファーストビュー -->
+    <section class="hero">
+        <h1>電話予約の手間を、<br>LINEで自動化しませんか？</h1>
+        <p class="hero-subtitle">営業中の電話対応から解放され、本業に集中できます</p>
+    </section>
+    
+    <!-- 料金表示 -->
+    <div class="price-display">月額5,000円〜</div>
+    <div class="price-note">初月無料・いつでも解約可能</div>
+    
+    <!-- メリットセクション -->
+    <section class="benefits">
+        <div class="benefits-container">
+            <div class="benefit-card">
+                <span class="benefit-icon phone">📞</span>
+                <h3 class="benefit-title">営業中に電話が鳴らない</h3>
+                <p class="benefit-desc">
+                    予約はすべてLINEで完結。<br>
+                    調理や接客に集中できます。
+                </p>
+            </div>
+            
+            <div class="benefit-card">
+                <span class="benefit-icon clock">⏰</span>
+                <h3 class="benefit-title">24時間いつでも予約可能</h3>
+                <p class="benefit-desc">
+                    営業時間外でも自動で予約受付。<br>
+                    機会損失を防ぎます。
+                </p>
+            </div>
+            
+            <div class="benefit-card">
+                <span class="benefit-icon price">💰</span>
+                <h3 class="benefit-title">月額5,000円〜導入できる</h3>
+                <p class="benefit-desc">
+                    初期費用なし。<br>
+                    小規模店舗でも導入しやすい価格。
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <h2 class="cta-title">まずは無料でお試しください</h2>
+        <a href="#qr" class="cta-button">30秒でデモ体験</a>
+        <p class="cta-note">クレジットカード不要・即日利用可能</p>
+    </section>
+    
+    <!-- QRコードセクション -->
+    <section class="qr-section" id="qr">
+        <div class="qr-container">
+            <div class="qr-placeholder">
+                QRコード<br>
+                挿入位置
+            </div>
+            <p class="qr-text">スマホでQRコードを読み取るか<br>LINE ID: @demo-restaurant で検索</p>
+        </div>
+    </section>
+    
+    <!-- よくある質問 -->
+    <section class="faq-section">
+        <h2 class="section-title">よくある質問</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">スマホだけで使えますか？</div>
+            <div class="faq-answer">
+                はい、スマートフォンだけで全ての機能をご利用いただけます。<br>
+                パソコンは不要で、LINEアプリから簡単に予約管理が可能です。
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">解約はできますか？</div>
+            <div class="faq-answer">
+                いつでも解約可能です。解約金や違約金は一切ありません。<br>
+                月単位での契約となり、解約月の月末まではご利用いただけます。
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">導入サポートはありますか？</div>
+            <div class="faq-answer">
+                初期設定から運用開始まで、専門スタッフが丁寧にサポートいたします。<br>
+                LINE通話での設定サポートも無料で行っております。
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">どんな業種でも使えますか？</div>
+            <div class="faq-answer">
+                飲食店、美容室、クリニック、教室など、予約が必要な業種全般でご利用いただけます。<br>
+                業種に合わせたカスタマイズも可能です。
+            </div>
+        </div>
+    </section>
+    
+    <!-- お問い合わせ -->
+    <section class="contact-section">
+        <h2 class="contact-title">お問い合わせ</h2>
+        <div class="contact-info">090-XXXX-XXXX</div>
+        <p class="contact-hours">受付時間：平日 10:00〜18:00</p>
+        <p class="contact-note">※しつこい営業は一切いたしません</p>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 LINE予約システム. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
