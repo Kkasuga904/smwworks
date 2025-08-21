@@ -53,7 +53,7 @@ export default function Footer() {
         
         {/* コピーライト */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-          <p>&copy; 2024 {config.siteName}. All rights reserved.</p>
+          <p>&copy; 2025 {config.siteName}. All rights reserved.</p>
         </div>
       </div>
     </footer>
