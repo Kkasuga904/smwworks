@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - SmartWeb Works</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .required {
+            color: #ff3333;
+            margin-left: 3px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="url"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .feature {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .feature-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .note {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff8e1;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .note strong {
+            color: #333;
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 640px) {
+            .container {
+                margin: 20px auto;
+                padding: 10px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        /* 成功メッセージ */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="logo">SmartWeb Works</div>
+            <h1>無料相談・お問い合わせ</h1>
+            <p class="subtitle">
+                <span class="highlight">初期費用0円</span>のホームページ制作サービスについて<br>
+                まずは無料相談からお気軽にどうぞ
+            </p>
+            
+            <div id="successMessage" class="success-message">
+                ✅ お問い合わせを受け付けました。2営業日以内にご連絡いたします。
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">初期費用0円</div>
+                    <div class="feature-desc">月額5,500円〜</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">レスポンシブ対応</div>
+                    <div class="feature-desc">全デバイス対応</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">保守込み</div>
+                    <div class="feature-desc">更新サポート付き</div>
+                </div>
+            </div>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">
+                        お名前
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" id="name" name="name" required placeholder="山田 太郎">
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">
+                        会社名・屋号
+                    </label>
+                    <input type="text" id="company" name="company" placeholder="株式会社〇〇">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">
+                        メールアドレス
+                        <span class="required">*</span>
+                    </label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">
+                        電話番号
+                    </label>
+                    <input type="tel" id="phone" name="phone" placeholder="090-1234-5678">
+                </div>
+                
+                <div class="form-group">
+                    <label for="website">
+                        現在のWebサイト（あれば）
+                    </label>
+                    <input type="url" id="website" name="website" placeholder="https://example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="purpose">
+                        ご相談内容
+                        <span class="required">*</span>
+                    </label>
+                    <select id="purpose" name="purpose" required>
+                        <option value="">選択してください</option>
+                        <option value="新規制作">ホームページ新規制作</option>
+                        <option value="リニューアル">既存サイトのリニューアル</option>
+                        <option value="料金について">料金・プランについて</option>
+                        <option value="保守サポート">保守・サポートについて</option>
+                        <option value="SEO対策">SEO対策について</option>
+                        <option value="その他">その他のご相談</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">
+                        ご予算
+                    </label>
+                    <select id="budget" name="budget">
+                        <option value="">選択してください</option>
+                        <option value="月額5,500円プラン">月額5,500円プラン</option>
+                        <option value="月額11,000円プラン">月額11,000円プラン</option>
+                        <option value="月額22,000円プラン">月額22,000円プラン</option>
+                        <option value="カスタムプラン">カスタムプラン希望</option>
+                        <option value="未定">未定</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">
+                        詳細・ご要望
+                        <span class="required">*</span>
+                    </label>
+                    <textarea id="message" name="message" required placeholder="作りたいホームページのイメージやご要望をお聞かせください。
+例：会社の信頼性を高めるサイトが欲しい、予約機能を付けたい、など"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">無料相談・お問い合わせを送信</button>
+            </form>
+            
+            <div class="note">
+                <strong>📌 ご確認事項</strong><br>
+                • ご相談は無料です。お気軽にお問い合わせください<br>
+                • 2営業日以内にメールまたはお電話でご連絡いたします<br>
+                • 関東圏対応（オンライン相談も可能です）<br>
+                • しつこい営業は一切いたしません
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // フォームデータを取得
+            const formData = {
+                name: document.getElementById('name').value,
+                company: document.getElementById('company').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                website: document.getElementById('website').value,
+                purpose: document.getElementById('purpose').value,
+                budget: document.getElementById('budget').value,
+                message: document.getElementById('message').value
+            };
+            
+            // メール本文を作成
+            const subject = `【SmartWeb Works】お問い合わせ：${formData.name}様`;
+            const body = `
+SmartWeb Works お問い合わせフォームより
+
+━━━━━━━━━━━━━━━━━━━━━━
+■ お客様情報
+━━━━━━━━━━━━━━━━━━━━━━
+
+【お名前】
+${formData.name}
+
+【会社名・屋号】
+${formData.company || '未記入'}
+
+【メールアドレス】
+${formData.email}
+
+【電話番号】
+${formData.phone || '未記入'}
+
+【現在のWebサイト】
+${formData.website || 'なし'}
+
+━━━━━━━━━━━━━━━━━━━━━━
+■ ご相談内容
+━━━━━━━━━━━━━━━━━━━━━━
+
+【ご相談内容】
+${formData.purpose}
+
+【ご予算】
+${formData.budget || '未選択'}
+
+【詳細・ご要望】
+${formData.message}
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+送信日時：${new Date().toLocaleString('ja-JP')}
+            `.trim();
+            
+            // mailtoリンクを作成して開く
+            const mailtoLink = `mailto:over9131120@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // メールクライアントを開く
+            window.location.href = mailtoLink;
+            
+            // 成功メッセージを表示
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // フォームをリセット
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                // スクロールを上に
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 1000);
+            
+            // 5秒後にメッセージを非表示
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

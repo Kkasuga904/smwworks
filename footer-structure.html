@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWeb Works - フッター構成案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', -apple-system, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .preview-title {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        /* フッターデザイン */
+        .footer {
+            background: #2b2d42;
+            color: #fff;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #b8b9c4;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        .contact-info {
+            margin-bottom: 15px;
+            color: #b8b9c4;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .contact-info strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #3a3c52;
+            padding-top: 20px;
+            text-align: center;
+            color: #7a7c8e;
+            font-size: 14px;
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer {
+                padding: 40px 20px 20px;
+            }
+        }
+        
+        /* 説明セクション */
+        .explanation {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .explanation h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .explanation ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .explanation li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.8;
+        }
+        
+        .explanation li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .change-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .change-point strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="preview-title">
+            SmartWeb Works - フッター改善案（第2案）
+        </div>
+        
+        <!-- フッター本体 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <!-- 左側：サービス情報 -->
+                <div class="footer-section">
+                    <h3>サービス情報</h3>
+                    <ul class="footer-links">
+                        <li><a href="/works">制作実績</a></li>
+                        <li><a href="/company">会社情報</a></li>
+                        <li><a href="/privacy">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 右側：お問い合わせ -->
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <div class="contact-info">
+                        <strong>メール</strong>
+                        info@smwworks.com
+                    </div>
+                    <div class="contact-info">
+                        <strong>営業時間</strong>
+                        平日 9:00-18:00
+                    </div>
+                    <a href="/contact" class="cta-button">無料相談・お問い合わせ</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                © 2024 SmartWeb Works. All rights reserved.
+            </div>
+        </footer>
+        
+        <!-- 説明 -->
+        <div class="explanation">
+            <h2>改善内容（第2案）</h2>
+            
+            <div class="change-point">
+                <strong>🔄 主な変更点</strong>
+            </div>
+            
+            <ul>
+                <li><strong>左側メニュー：</strong>「お問い合わせ」を削除し、情報系のリンクのみに統一</li>
+                <li><strong>新規追加：</strong>「会社情報」を追加（信頼性向上のため）</li>
+                <li><strong>右側：</strong>問い合わせ情報とCTAボタンを1つに統合</li>
+                <li><strong>ボタンテキスト：</strong>「無料相談・お問い合わせ」で統一</li>
+                <li><strong>デザイン：</strong>CTAボタンを目立つグラデーションデザインに</li>
+            </ul>
+            
+            <div class="change-point" style="background: #d4edda; border-color: #28a745;">
+                <strong>✅ メリット</strong>
+            </div>
+            
+            <ul>
+                <li>ユーザーの迷いを解消（問い合わせ窓口が1つに）</li>
+                <li>左右の役割が明確（情報 vs アクション）</li>
+                <li>CTAボタンが1つで視線が分散しない</li>
+                <li>「無料相談」と「お問い合わせ」両方のニーズに対応</li>
+                <li>シンプルで分かりやすい構成</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
