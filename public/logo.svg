@@ -1,0 +1,9 @@
+<svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Icon -->
+  <rect x="10" y="20" width="60" height="60" rx="8" fill="#0d5ca6"/>
+  <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="white">SW</text>
+  
+  <!-- Logo Text -->
+  <text x="85" y="48" font-family="Arial, sans-serif" font-size="32" font-weight="600" fill="#0d5ca6">SmartWeb</text>
+  <text x="85" y="75" font-family="Arial, sans-serif" font-size="32" font-weight="600" fill="#0d5ca6">Works</text>
+</svg>
